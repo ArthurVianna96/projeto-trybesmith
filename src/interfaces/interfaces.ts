@@ -28,6 +28,7 @@ export enum StatusCodes {
   BadRequest = 400,
   Unauthorized = 401,
   NotFound = 404,
+  Unprocessable = 422,
 }
 export interface IResponse {
   statusCode: StatusCodes,
