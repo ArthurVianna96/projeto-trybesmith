@@ -10,13 +10,25 @@ export interface IOrder {
   productsIds: number[]
 }
 
-export interface IUserInsert {
+export interface IUser {
+  id?: number,
   username: string, 
-  classe: string,
-  level: number,
-  password: string,
+  classe?: string,
+  level?: number,
+  password?: string,
 }
 
 export interface IToken {
   token: string,
+}
+
+export enum StatusCodes {
+  Success = 200,
+  Created = 201,
+  BadRequest = 400,
+  Unauthorized = 401,
+  NotFound = 404,
+}
+export interface IResponse {
+  statusCode: StatusCodes,
 }

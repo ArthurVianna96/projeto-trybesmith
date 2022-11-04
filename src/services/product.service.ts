@@ -1,14 +1,13 @@
-import { IProduct } from '../interfaces/interfaces';
+import { IProduct, IResponse, StatusCodes } from '../interfaces/interfaces';
 import productModel from '../models/product.model';
 
-interface IResponse {
-  type: string | null,
+interface IProductInsertResponse extends IResponse {
   message: IProduct
 }
 
-const insertProduct = async (name: string, amount: string): Promise<IResponse> => {
+const insertProduct = async (name: string, amount: string): Promise<IProductInsertResponse> => {
   const product = await productModel.insert(name, amount);
-  return { type: null, message: product };
+  return { statusCode: StatusCodes.Created, message: product };
 };
 
 const findAll = async (): Promise<IProduct[]> => productModel.findAll(); 
