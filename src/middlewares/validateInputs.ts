@@ -126,3 +126,22 @@ export const validateProductAmount = async (
 
   next();
 };
+
+export const validateIds = async (req: Request, res: Response, next: NextFunction)
+: Promise<void | Response> => {
+  const { productsIds } = req.body;
+  if (!productsIds) {
+    return res.status(StatusCodes.BadRequest).json({ message: '"productsIds" is required' });
+  }
+  if (typeof productsIds !== 'object') {
+    return res.status(StatusCodes.Unprocessable).json(
+      { message: '"productsIds" must be an array' },
+    );
+  }
+  if (productsIds.length < 1) {
+    return res.status(StatusCodes.Unprocessable).json(
+      { message: '"productsIds" must include only numbers' },
+    );
+  }
+  next();
+};
