@@ -34,3 +34,6 @@ Na raiz da aplicação existe um arquivo Trybesmith.sql com as queries necessár
 - Mysql
 - JWT
 - Typescript
+
+# Observações importantes
+Apenas os arquivos dentro da pasta `src` foram inteiramente de autoria pessoal, todos os outros arquivos foram criados pela Trybe.
